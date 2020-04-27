@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using TravelMonkey.ViewModels;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace TravelMonkey.Views
@@ -15,6 +16,7 @@ namespace TravelMonkey.Views
             InitializeComponent();
 
             BindingContext = _mainPageViewModel;
+           
         }
 
         protected override void OnAppearing()
@@ -35,6 +37,8 @@ namespace TravelMonkey.Views
         {
             await Navigation.PushModalAsync(new AddPicturePage());
         }
+
+       
 
         private async void Entry_Completed(object sender, EventArgs e)
         {

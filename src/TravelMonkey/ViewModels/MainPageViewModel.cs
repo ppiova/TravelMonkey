@@ -22,6 +22,10 @@ namespace TravelMonkey.ViewModels
             set => Set(ref _currentDestination, value);
         }
 
+       
+
+
+
         public Command<string> OpenUrlCommand { get; } = new Command<string>(async (url) =>
         {
             if (!string.IsNullOrWhiteSpace(url))
@@ -32,6 +36,9 @@ namespace TravelMonkey.ViewModels
                     PreferredControlColor = Color.White
                 });
         });
+
+        public string Description { get; }
+
 
         public MainPageViewModel()
         {
@@ -48,13 +55,21 @@ namespace TravelMonkey.ViewModels
                     else
                         CurrentDestination = Destinations[currentIdx + 1];
                 };
+
             }
+
         }
+        public Command<string> SpeachTextCommand { get; } = new Command<string>(async (text) =>
+        {
+            if (!string.IsNullOrWhiteSpace(text))
+                await TextToSpeech.SpeakAsync(text);
+
+        });
 
         public void StartSlideShow()
         {
             _slideShowTimer.Start();
-            
+
         }
         public void StopSlideShow()
         {

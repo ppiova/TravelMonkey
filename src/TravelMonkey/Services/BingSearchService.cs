@@ -12,8 +12,8 @@ namespace TravelMonkey.Services
 
         public async Task<List<Destination>> GetDestinations()
         {
-            var searchDestinations = new[] { "Seattle", "Maui", "Amsterdam", "Antarctica" };
-
+            var searchDestinations = new[] { "Seattle", "Maui", "Amsterdam", "Antarctica", "Argentina" };
+            //Write city and call bingsearch
             try
             {
                 var client = new ImageSearchClient(new ApiKeyServiceClientCredentials(ApiKeys.BingImageSearch));

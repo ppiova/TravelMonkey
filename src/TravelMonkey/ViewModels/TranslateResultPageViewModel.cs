@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using TravelMonkey.Services;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace TravelMonkey.ViewModels
@@ -49,5 +50,12 @@ namespace TravelMonkey.ViewModels
 
             Translations = result.Translations;
         }
+
+        public Command<string> SpeachTranslationsCommand { get; } = new Command<string>(async (text) =>
+        {
+            if (!string.IsNullOrWhiteSpace(text))
+                await TextToSpeech.SpeakAsync(text);
+
+        });
     }
 }
